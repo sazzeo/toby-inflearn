@@ -1,27 +1,20 @@
 package com.example.tobyinflearn;
 
+import com.example.tobyinflearn.hello.HelloController;
 import com.example.tobyinflearn.servlet.FrontController;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServer;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-
-import java.io.IOException;
-import java.io.PrintWriter;
+import org.springframework.context.support.GenericApplicationContext;
 
 public class TobyInflearnApplication {
 
     public static void main(String[] args) {
-        System.out.println("hello Containerless Standalone Application");
-
         startServer();
     }
 
-    /** 1. 내장 톰캣 실행하기 */
+    /**
+     * 1. 내장 톰캣 실행하기
+     */
     private static void startServer() {
         //톰캣 서버를 만들어주는 도우미 클래스
         TomcatServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();
@@ -30,7 +23,8 @@ public class TobyInflearnApplication {
         // WebServer : tomcat , netty 등 서버를 받기 위한 추상화 클래스
         //매개변수로 서블릿들 전달
         WebServer webServer = serverFactory.getWebServer(servletContext ->
-            servletContext.addServlet("hello", new FrontController()).addMapping("/hello" )
+                servletContext.addServlet("hello", new FrontController())
+                        .addMapping("/*")
         );
         webServer.start();
     }
