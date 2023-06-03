@@ -1,10 +1,9 @@
 package com.example.tobyinflearn;
 
-import jakarta.servlet.ServletException;
+import com.example.tobyinflearn.servlet.FrontController;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.apache.catalina.startup.Tomcat;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServer;
 import org.springframework.http.HttpHeaders;
@@ -31,15 +30,7 @@ public class TobyInflearnApplication {
         // WebServer : tomcat , netty 등 서버를 받기 위한 추상화 클래스
         //매개변수로 서블릿들 전달
         WebServer webServer = serverFactory.getWebServer(servletContext ->
-            servletContext.addServlet("hello", new HttpServlet() {
-                @Override
-                protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-                    resp.setStatus(HttpStatus.OK.value());
-                    resp.setHeader(HttpHeaders.CONTENT_TYPE, MediaType.TEXT_PLAIN_VALUE);
-                    PrintWriter writer = resp.getWriter();
-                    writer.println("hello servlet");
-                }
-            }).addMapping("/hello" )
+            servletContext.addServlet("hello", new FrontController()).addMapping("/hello" )
         );
         webServer.start();
     }
