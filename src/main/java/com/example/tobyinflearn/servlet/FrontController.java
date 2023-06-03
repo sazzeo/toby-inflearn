@@ -1,7 +1,8 @@
 package com.example.tobyinflearn.servlet;
 
-import com.example.tobyinflearn.hello.HelloController;
-import jakarta.servlet.ServletException;
+import com.example.tobyinflearn.hello.controller.HelloController;
+import com.example.tobyinflearn.hello.service.HelloService;
+import com.example.tobyinflearn.hello.service.SimpleHelloService;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -24,6 +25,7 @@ public class FrontController extends HttpServlet {
         GenericApplicationContext ac = new GenericApplicationContext();
         //빈 등록하기
         ac.registerBean(HelloController.class);
+        ac.registerBean(SimpleHelloService.class);
         //컨테이너 초기화
         ac.refresh();
         HelloController helloController = ac.getBean(HelloController.class);

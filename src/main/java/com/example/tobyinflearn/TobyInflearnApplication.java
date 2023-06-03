@@ -1,10 +1,8 @@
 package com.example.tobyinflearn;
 
-import com.example.tobyinflearn.hello.HelloController;
 import com.example.tobyinflearn.servlet.FrontController;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServer;
-import org.springframework.context.support.GenericApplicationContext;
 
 public class TobyInflearnApplication {
 
