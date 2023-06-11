@@ -15,15 +15,15 @@ import org.springframework.web.servlet.DispatcherServlet;
 public class BeanConfig {
 
     //팩토리 메소드
-    @Bean
-    public HelloController helloController(HelloService helloService) {
-        return new HelloController(helloService);
-    }
-
-    @Bean
-    public HelloService helloService() {
-        return new SimpleHelloService();
-    }
+//    @Bean
+//    public HelloController helloController(HelloService helloService) {
+//        return new HelloController(helloService);
+//    }
+//
+//    @Bean
+//    public HelloService helloService() {
+//        return new SimpleHelloService();
+//    }
 
     @Bean
     public ServletWebServerFactory servletWebServerFactory() {

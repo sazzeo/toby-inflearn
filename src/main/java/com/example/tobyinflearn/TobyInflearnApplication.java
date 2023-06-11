@@ -2,6 +2,7 @@ package com.example.tobyinflearn;
 
 import com.example.tobyinflearn.ac.AnnotationConfigWebApplicationContextExample;
 import com.example.tobyinflearn.ac.GenericWebApplicationContextExample;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -9,8 +10,10 @@ import org.springframework.context.annotation.ComponentScan;
 public class TobyInflearnApplication {
     public static void main(String[] args) {
 //        new GenericWebApplicationContextExample().startServer();
-        new AnnotationConfigWebApplicationContextExample().run(TobyInflearnApplication.class);
+//        new AnnotationConfigWebApplicationContextExample().run(TobyInflearnApplication.class);
+        SpringApplication.run(TobyInflearnApplication.class, args);
     }
+
 
 }
 
