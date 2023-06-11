@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Objects;
 
+@Component
 @RequestMapping("/")
 public class HelloController {
     private final HelloService helloService;

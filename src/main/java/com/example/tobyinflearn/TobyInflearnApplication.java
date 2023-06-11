@@ -2,11 +2,14 @@ package com.example.tobyinflearn;
 
 import com.example.tobyinflearn.ac.AnnotationConfigWebApplicationContextExample;
 import com.example.tobyinflearn.ac.GenericWebApplicationContextExample;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan
 public class TobyInflearnApplication {
     public static void main(String[] args) {
 //        new GenericWebApplicationContextExample().startServer();
-    new AnnotationConfigWebApplicationContextExample().startServer();
+        new AnnotationConfigWebApplicationContextExample().run(TobyInflearnApplication.class);
     }
 
 }

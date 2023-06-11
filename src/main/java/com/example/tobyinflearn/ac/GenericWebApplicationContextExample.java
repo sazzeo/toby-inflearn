@@ -11,7 +11,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 //GenericWebApplicationContext 로 직접 빈 등록해서 사용해보기
 public class GenericWebApplicationContextExample {
 
-    public void startServer() {
+    public void run() {
         //DispatcherServlet 이 받는 ac
         GenericWebApplicationContext applicationContext = getApplicationContext();
         //application Context 에 bean 등록 (@Component 붙여준거랑 동일)
