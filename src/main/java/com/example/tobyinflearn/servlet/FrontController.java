@@ -1,16 +1,16 @@
 package com.example.tobyinflearn.servlet;
 
 import com.example.tobyinflearn.hello.controller.HelloController;
-import com.example.tobyinflearn.hello.service.HelloService;
 import com.example.tobyinflearn.hello.service.SimpleHelloService;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+
 import org.springframework.context.support.GenericApplicationContext;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -29,6 +29,7 @@ public class FrontController extends HttpServlet {
         //컨테이너 초기화
         ac.refresh();
         HelloController helloController = ac.getBean(HelloController.class);
+
 
         //인증, 보안, 다국어, 공통 기능... 넣기
         if (req.getRequestURI().equals("/hello") && req.getMethod().equals(HttpMethod.GET.name())) {
