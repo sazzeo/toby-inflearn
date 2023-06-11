@@ -1,31 +1,20 @@
 package com.example.tobyinflearn;
 
-import com.example.tobyinflearn.servlet.FrontController;
-import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
-import org.springframework.boot.web.server.WebServer;
+import com.example.tobyinflearn.ac.AnnotationConfigWebApplicationContextExample;
+import com.example.tobyinflearn.ac.GenericWebApplicationContextExample;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan
 public class TobyInflearnApplication {
-
     public static void main(String[] args) {
-        startServer();
+//        new GenericWebApplicationContextExample().startServer();
+//        new AnnotationConfigWebApplicationContextExample().run(TobyInflearnApplication.class);
+        SpringApplication.run(TobyInflearnApplication.class, args);
     }
 
-    /**
-     * 1. 내장 톰캣 실행하기
-     */
-    private static void startServer() {
-        //톰캣 서버를 만들어주는 도우미 클래스
-        TomcatServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();
-        serverFactory.setPort(8082);
 
-        // WebServer : tomcat , netty 등 서버를 받기 위한 추상화 클래스
-        //매개변수로 서블릿들 전달
-        WebServer webServer = serverFactory.getWebServer(servletContext ->
-                servletContext.addServlet("hello", new FrontController())
-                        .addMapping("/*")
-        );
-        webServer.start();
-    }
 }
 
 //서블릿 : 자바의 표준 기술
