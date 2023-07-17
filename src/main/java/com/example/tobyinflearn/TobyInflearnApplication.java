@@ -13,8 +13,6 @@ public class TobyInflearnApplication {
 //        new AnnotationConfigWebApplicationContextExample().run(TobyInflearnApplication.class);
         SpringApplication.run(TobyInflearnApplication.class, args);
     }
-
-
 }
 
 //서블릿 : 자바의 표준 기술
