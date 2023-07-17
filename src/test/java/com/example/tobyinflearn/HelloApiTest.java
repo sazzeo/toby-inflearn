@@ -20,7 +20,7 @@ class HelloApiTest {
         ResponseEntity<String> res = rest.getForEntity("http://localhost:8082/hello?name={name}", String.class, "spring");
         assertThat(res.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(res.getHeaders().getFirst(HttpHeaders.CONTENT_TYPE)).startsWith(MediaType.TEXT_PLAIN_VALUE);
-        assertThat(res.getBody()).isEqualTo("hello spring");
+        assertThat(res.getBody()).isEqualTo("*hello spring*");
     }
 
     @DisplayName("api 실패 테스트 : name가 null일 때")

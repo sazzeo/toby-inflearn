@@ -1,7 +1,6 @@
 package com.example.tobyinflearn;
 
 import com.example.tobyinflearn.hello.controller.HelloController;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -24,12 +23,12 @@ public class HelloControllerTest {
     void failsHelloController() {
         HelloController helloController = new HelloController(name -> "hello " + name);
 
-        assertThatThrownBy(() -> {
-            helloController.hello(null);
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() ->
+                helloController.hello(null)
+        ).isInstanceOf(IllegalArgumentException.class);
 
-        assertThatThrownBy(() -> {
-            helloController.hello("");
-        }).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() ->
+                helloController.hello("")
+        ).isInstanceOf(IllegalArgumentException.class);
     }
 }
